@@ -1,0 +1,63 @@
+version: '3.9'
+services:
+  #frontって名前のサービス作るよ。################################################
+  front:
+    #front作成されるimage名（オプション）
+    image: iron-duke-front-image
+    #コンテナ作成時のコンテナ名前（オプション）
+    container_name: iron-duke-front-container
+    build:
+      #Dockerfileのディレクトリを設定()
+      context: .
+    #マウントの設定　指定されたディレクトリがなければ自動作成される。
+    volumes:
+      #hostのiron-duke-frontをコンテナの/iron-duke/iron-duke-front/からマウントする
+      - ./iron-duke-front/:/iron-duke/iron-duke-front/
+    #コンテナ内でこのディレクトリでコマンド打つようにする設定
+    working_dir: /iron-duke/iron-duke-front/
+    #コンテナ立ち上がった後最初に実行するコマンド
+    command: npm run dev
+    tty: true
+    #ホスト側のポート/コンテナのポート
+    ports:
+      - '3000:3000'
+  ################################################################################
+  #backendって名前のサービス作るよ。###############################################
+  backend:
+    #イメージ作成時のimage名設定（オプション）
+    image: iron-duke-backend-image
+    #コンテナ作成時のコンテナ名設定（オプション）
+    container_name: iron-duke-backend-container
+    build:
+      #Dockerfileのディレクトリを設定()
+      context: .
+    #マウントの設定　指定されたディレクトリがなければ自動作成される。
+    volumes:
+      #hostのiron-duke-frontをコンテナの/iron-duke/iron-duke-front/からマウントする
+      - ./iron-duke-backend/:/iron-duke/iron-duke-backend/
+    #コンテナ内でこのディレクトリでコマンド打つようにする設定
+    working_dir: /iron-duke/iron-duke-backend/
+    #コンテナ立ち上がった後最初に実行するコマンド
+    command: npm run start
+    tty: true
+    #ホスト側のポート/コンテナのポート
+    ports:
+      - '4000:4000'
+  ################################################################################
+  #db-postgressって名前のサービス作るよ。##########################################
+  db:
+    image: iron-duke-db-image
+    container_name: iron-duke-db-image
+    build: 
+      context: .
+      dockerfile: ./db/Dockerfile
+    environment: 
+      POSTGRES_PASSWORD: "postgress"
+      POSTGRES_USER: "postgres"
+      POSTGRESS_DB: "ironduke"
+    volumes:
+      - ./db/db_data:/var/lib/postgresql/data
+      - ./db/initdb:/docker-entrypoint-initdb.d
+    ports:
+      - '5432:5432'
+  ################################################################################
