@@ -54,14 +54,14 @@ services:
     container_name: iron-duke-db-image
     build: 
       context: .
-      dockerfile: ./db/Dockerfile
+      dockerfile: ./iron-duke-db/Dockerfile
     environment: 
       POSTGRES_PASSWORD: "postgress"
       POSTGRES_USER: "postgres"
       POSTGRESS_DB: "ironduke"
     volumes:
-      - ./db/db_data:/var/lib/postgresql/data
-      - ./db/initdb:/docker-entrypoint-initdb.d
+      - ./iron-duke-db/db_data:/var/lib/postgresql/data
+      - ./iron-duke-db/initdb:/docker-entrypoint-initdb.d
     ports:
       - '5432:5432'
   ################################################################################
