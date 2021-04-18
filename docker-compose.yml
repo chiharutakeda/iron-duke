@@ -18,6 +18,10 @@ services:
     #コンテナ立ち上がった後最初に実行するコマンド
     command: npm run dev
     tty: true
+    environment:
+      #仮想環境でホットリロード可能にする設定この設定をした状態でdocker-compose up後コンテナにvscode上からアタッチして
+      #編集したいファイルを開いたらローカルのファイルと編集内容が同期するようになる。（謎挙動）
+    - CHOKIDAR_USEPOLLING=true
     #ホスト側のポート/コンテナのポート
     ports:
       - '3000:3000'
