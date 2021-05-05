@@ -14,11 +14,9 @@
 `cd ..`  
 `docker-compose up -d`  
 
-一度コンテナが立ち上がった後にdocker-compose downした後
+一度コンテナが立ち上がった後に`docker-compose down`した後
 
-もう一度　　
-`docker-compose up -d`　
-を実行し
+もう一度`docker-compose up -d`を実行し
 
 以下urlにアクセスしてください
 http://localhost:3000/iron-duke
