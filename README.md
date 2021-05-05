@@ -10,6 +10,6 @@
 `npm install`  
 `cd ..`  
 `cd iron-duke-backend`  
-`pm install`  
+`npm install`  
 `cd ..`  
 `docker-compose up -d`  
