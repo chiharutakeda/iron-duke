@@ -6,8 +6,10 @@
 `git clone https://github.com/chiharutakeda/iron-duke-front.git`  
 `git clone https://github.com/chiharutakeda/iron-duke-backend.git`  
 `gitclone https://github.com/chiharutakeda/iron-duke-db.git`  
-`cd iron-duke-front npm install`  
+`cd iron-duke-front` 
+`npm install`  
 `cd ..`  
-`cd iron-duke-backend npm install`  
+`cd iron-duke-backend`  
+`pm install`  
 `cd ..`  
 `docker-compose up -d`  
