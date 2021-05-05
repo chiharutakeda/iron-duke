@@ -5,8 +5,8 @@
 `cd iron-duke`  
 `git clone https://github.com/chiharutakeda/iron-duke-front.git`  
 `git clone https://github.com/chiharutakeda/iron-duke-backend.git`  
-`gitclone https://github.com/chiharutakeda/iron-duke-db.git`  
-`cd iron-duke-front` 
+`git clone https://github.com/chiharutakeda/iron-duke-db.git`  
+`cd iron-duke-front`  
 `npm install`  
 `cd ..`  
 `cd iron-duke-backend`  
