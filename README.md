@@ -16,4 +16,4 @@
 
 
 以下urlにアクセスしてください
-http://localhost:3000/iron-duke
+http://localhost:3000/iron-duke/home
