@@ -60,7 +60,7 @@ services:
       POSTGRES_USER: "postgres"
       POSTGRESS_DB: "ironduke"
     volumes:
-      - ./iron-duke-db/db_data:/var/lib/postgresql/data
+      - ./iron-duke-db/db_data:/var/lib/postgresql
       - ./iron-duke-db/initdb:/docker-entrypoint-initdb.d
     ports:
       - '5432:5432'
